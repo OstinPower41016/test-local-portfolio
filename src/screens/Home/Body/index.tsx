@@ -24,9 +24,9 @@ const Body = observer(() => {
           <BlockContent>
             <ListWrapper title="Portfolio">
               <ul className="flex flex-col gap-2">
-                {portfolio_links.map((link) => {
+                {portfolio_links.map((link, idx) => {
                   return (
-                    <ListItem className="flex">
+                    <ListItem key={link + idx} className="flex">
                       <Link children={link} />
                     </ListItem>
                   );
@@ -38,7 +38,9 @@ const Body = observer(() => {
             <ExperienceBlockWrapper title="Experience">
               <ul className="flex flex-col gap-2">
                 {UserStore.skills.map((skill) => {
-                  return <ExperienceBlock defaultValue={skill.exp?.toString() ?? "0"} skillName={skill.title} id={skill.id} />;
+                  return (
+                    <ExperienceBlock key={skill.id} defaultValue={skill.exp?.toString() ?? "0"} skillName={skill.title} id={skill.id} />
+                  );
                 })}
               </ul>
             </ExperienceBlockWrapper>
