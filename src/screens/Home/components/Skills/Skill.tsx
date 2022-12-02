@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { CloseIcon } from "@assets/icons";
 import { Colors } from "@constants/colors";
 import Input from "@shared/components/Input";
-import UserStore from "../../../store/User";
+import UserStore from "../../../../store/User";
 
 interface ISkill extends React.HTMLProps<HTMLButtonElement> {
   className?: string;

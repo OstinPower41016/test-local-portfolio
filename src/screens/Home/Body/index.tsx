@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import HeaderBlock from "../../../shared/components/HeaderBlock";
 import Link from "../../../shared/components/Link";
-import UserStore from "../../store/User";
+import UserStore from "../../../store/User";
 import ListWrapper from "../components/ListWrapper";
 import sampleCodeImg from "@assets/sample_code.png";
 import BlockContent from "../components/BlockContent";

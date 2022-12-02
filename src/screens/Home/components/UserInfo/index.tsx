@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Input from "@shared/components/Input";
 import Flag from "react-world-flags";
 
-import UserStore from "../../../store/User";
+import UserStore from "../../../../store/User";
 import Skills from "../Skills";
 
 const UserInfo = observer(() => {

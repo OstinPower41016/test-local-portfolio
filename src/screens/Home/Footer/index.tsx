@@ -3,7 +3,7 @@ import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import { toJS } from "mobx";
 import { observer } from "mobx-react-lite";
 
-import UserStore from "../../store/User";
+import UserStore from "../../../store/User";
 import BlockContent from "../components/BlockContent";
 import HeaderBlock from "@shared/components/HeaderBlock";
 import Quote from "../components/Quote";

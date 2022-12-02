@@ -6,7 +6,7 @@ import { ExperienceTextContainer, ListItem } from "./index";
 import Input from "@shared/components/Input";
 import Link from "@shared/components/Link";
 import ListWrapper from "../components/ListWrapper";
-import UserStore from "../../store/User";
+import UserStore from "../../../store/User";
 
 interface IExperienceBlock {
   defaultValue: string;

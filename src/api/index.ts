@@ -1,4 +1,4 @@
-import { TLocation } from "../screens/store/User";
+import { TLocation } from "../store/User";
 
 type TGetCoordinates = (cityName: string) => Promise<TLocation | void>;
 
