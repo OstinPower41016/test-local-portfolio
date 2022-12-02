@@ -1,11 +1,11 @@
 import { observer } from "mobx-react-lite";
-import { ChangeEvent, FC, useState, FocusEvent } from "react";
+import { ChangeEvent, FC } from "react";
 import styled from "styled-components";
 
+import Input from "@shared/components/Input";
 import { CloseIcon } from "@assets/icons";
 import { Colors } from "@constants/colors";
-import Input from "@shared/components/Input";
-import UserStore from "../../../../store/User";
+import UserStore from "@store/User";
 
 interface ISkill extends React.HTMLProps<HTMLButtonElement> {
   className?: string;
@@ -22,7 +22,7 @@ const Skill: FC<ISkill> = observer((props) => {
     }
   };
 
-  const onBlur = (e: FocusEvent<HTMLInputElement, Element>) => {
+  const onBlur = () => {
     if (skill?.title.trim().length === 0) {
       onRemoveSkill();
     }

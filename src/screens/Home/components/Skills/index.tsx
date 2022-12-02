@@ -1,8 +1,8 @@
 import { observer } from "mobx-react-lite";
 
-import { PlusIcon } from "@assets/icons";
-import UserStore from "../../../../store/User";
 import Skill from "./Skill";
+import { PlusIcon } from "@assets/icons";
+import UserStore from "@store/User";
 
 const Skills = observer(() => {
   return (

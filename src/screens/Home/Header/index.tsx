@@ -40,10 +40,10 @@ const Header = styled.div`
 const PrintContainer = styled.div`
   &:hover {
     > svg > path {
-      fill: ${Colors.highlightText};
+      fill: ${Colors.hover};
     }
     > p {
-      color: ${Colors.highlightText};
+      color: ${Colors.hover};
     }
   }
 `;

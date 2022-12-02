@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import { toJS } from "mobx";
 import { observer } from "mobx-react-lite";
+import { useEffect, useState } from "react";
 
-import UserStore from "../../../store/User";
-import BlockContent from "../components/BlockContent";
 import HeaderBlock from "@shared/components/HeaderBlock";
+import BlockContent from "../components/BlockContent";
 import Quote from "../components/Quote";
+import UserStore from "@store/User";
 
 const Footer = observer(() => {
   const [coords, setCoords] = useState({
@@ -15,11 +15,11 @@ const Footer = observer(() => {
   });
 
   useEffect(() => {
-    console.log(toJS(UserStore.location.coords), "coords");
     setCoords({
       zoom: 9,
       center: toJS(UserStore.location.coords),
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [UserStore.location.coords]);
 
   return (
@@ -35,7 +35,7 @@ const Footer = observer(() => {
         </BlockContent>
       </div>
       <YMaps query={{ lang: "en_US" }}>
-        <Map onError={(e) => console.log(e)} state={coords} width={"50%"} height={200} defaultState={coords}>
+        <Map state={coords} width={"50%"} height={200} defaultState={coords}>
           <Placemark geometry={coords} />
         </Map>
       </YMaps>

@@ -1,5 +1,6 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import styled from "styled-components";
+
 import { Colors } from "@constants/colors";
 
 interface IInput extends React.HTMLProps<HTMLInputElement> {

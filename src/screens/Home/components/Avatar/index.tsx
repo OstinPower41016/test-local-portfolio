@@ -1,9 +1,8 @@
-import React from "react";
 import styled from "styled-components";
-import { Colors } from "@constants/colors";
 
 import AvatarUploadIcon from "./assets/AvatarUpload";
 import useAvatar from "./hooks/useAvatar";
+import { Colors } from "@constants/colors";
 
 const Avatar = () => {
   const { state, handlers } = useAvatar();

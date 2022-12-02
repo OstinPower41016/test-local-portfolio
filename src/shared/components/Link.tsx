@@ -16,7 +16,7 @@ const LinkCmp = styled.p`
   color: ${Colors.link};
   cursor: pointer;
   &:hover {
-    color: ${Colors.highlightText};
+    color: ${Colors.hover};
   }
 `;
 

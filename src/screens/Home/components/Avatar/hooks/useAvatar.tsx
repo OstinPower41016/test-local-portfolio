@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 import plugAvatar from "../assets/plugAvatar.jpg";
 
@@ -12,7 +12,7 @@ type THook = () => {
 };
 
 const useAvatar: THook = () => {
-  const [image, setImage] = React.useState(window.localStorage.getItem("avatar_image") ?? plugAvatar);
+  const [image, setImage] = useState(window.localStorage.getItem("avatar_image") ?? plugAvatar);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e?.target?.files?.[0];

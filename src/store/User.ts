@@ -1,4 +1,4 @@
-import { autorun, makeAutoObservable, reaction, toJS } from "mobx";
+import { makeAutoObservable, reaction, toJS } from "mobx";
 import { v4 as uuidv4 } from "uuid";
 
 import { getCoordinates } from "@api/index";
@@ -31,7 +31,6 @@ class User {
   }
 
   setUserName = (value: string) => {
-    localStorage.setItem("userName", value);
     this.userName = value;
   };
 
@@ -45,8 +44,6 @@ class User {
         country: res.country,
         countryCode: res.countryCode,
       };
-
-      localStorage.setItem("location", JSON.stringify(toJS(this.location)));
     }
   };
 
@@ -66,8 +63,6 @@ class User {
       },
       ...this.skills.slice(selectedSkillIdx + 1),
     ];
-
-    localStorage.setItem("skills", JSON.stringify(toJS(this.skills)));
   };
 
   removeSkill = (id: string) => {

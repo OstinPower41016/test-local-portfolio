@@ -1,13 +1,13 @@
 import { observer } from "mobx-react-lite";
 import styled from "styled-components";
 
-import HeaderBlock from "../../../shared/components/HeaderBlock";
-import Link from "../../../shared/components/Link";
-import UserStore from "../../../store/User";
-import ListWrapper from "../components/ListWrapper";
-import sampleCodeImg from "@assets/sample_code.png";
+import HeaderBlock from "@shared/components/HeaderBlock";
+import Link from "@shared/components/Link";
 import BlockContent from "../components/BlockContent";
+import ListWrapper from "../components/ListWrapper";
 import ExperienceBlock from "./ExperienceBlock";
+import sampleCodeImg from "@assets/sample_code.png";
+import UserStore from "@store/User";
 
 const portfolio_links = [
   "Bootstrap 4 Material Design (Sample Link)",

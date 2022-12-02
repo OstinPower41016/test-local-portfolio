@@ -20,7 +20,8 @@
       "@assets/*": ["./src/assets/*"],
       "@shared/*": ["./src/shared/*"],
       "@constants/*": ["./src/constants/*"],
-      "@api/*": ["./src/api/*"]
+      "@api/*": ["./src/api/*"],
+      "@store/*": ["./src/store/*"]
     }
   },
   "include": ["src"],

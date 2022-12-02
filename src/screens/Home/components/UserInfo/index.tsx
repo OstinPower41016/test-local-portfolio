@@ -1,10 +1,10 @@
 import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
-import Input from "@shared/components/Input";
 import Flag from "react-world-flags";
 
-import UserStore from "../../../../store/User";
+import Input from "@shared/components/Input";
 import Skills from "../Skills";
+import UserStore from "@store/User";
 
 const UserInfo = observer(() => {
   const [city, setCity] = useState("");
@@ -13,6 +13,7 @@ const UserInfo = observer(() => {
     if (city !== UserStore.location.city) {
       setCity(UserStore.location.city);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [UserStore.location.city.toString()]);
 
   return (

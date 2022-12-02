@@ -1,12 +1,9 @@
-import React from "react";
-import { FC } from "react";
-import styled from "styled-components";
+import { FC, useState } from "react";
 
-import { ExperienceTextContainer, ListItem } from "./index";
 import Input from "@shared/components/Input";
 import Link from "@shared/components/Link";
-import ListWrapper from "../components/ListWrapper";
-import UserStore from "../../../store/User";
+import { ExperienceTextContainer, ListItem } from "./index";
+import UserStore from "@store/User";
 
 interface IExperienceBlock {
   defaultValue: string;
@@ -15,7 +12,7 @@ interface IExperienceBlock {
 }
 
 const ExperienceBlock: FC<IExperienceBlock> = (props) => {
-  const [value, setValue] = React.useState(props.defaultValue);
+  const [value, setValue] = useState(props.defaultValue);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const currValue = e.target.value;
@@ -80,8 +77,3 @@ const ExperienceBlock: FC<IExperienceBlock> = (props) => {
 };
 
 export default ExperienceBlock;
-
-const ExperienceBlockCmp = styled(ListWrapper)`
-  max-width: 190px;
-  overflow-wrap: anywhere;
-`;

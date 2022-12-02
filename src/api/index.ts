@@ -1,4 +1,4 @@
-import { TLocation } from "../store/User";
+import { TLocation } from "@store/User";
 
 type TGetCoordinates = (cityName: string) => Promise<TLocation | void>;
 
@@ -6,7 +6,7 @@ export const getCoordinates: TGetCoordinates = async (cityName) => {
   try {
     const res = await fetch(
       `https://geocode-maps.yandex.ru/1.x?geocode=${cityName}&apikey=${
-        import.meta.env.YAMAP_API_KEY
+        import.meta.env.VITE_YAMAP_API_KEY
       }&format=json&results=10&lang=en_US&kind=locality`,
       {
         method: "GET",
@@ -24,16 +24,17 @@ export const getCoordinates: TGetCoordinates = async (cityName) => {
       }
 
       const geoObj = response.response.GeoObjectCollection.featureMember[0].GeoObject;
+      const addres = geoObj.metaDataProperty.GeocoderMetaData.Address;
+      const coords = geoObj.Point.pos;
 
       return {
-        coords: geoObj.Point.pos
+        coords: coords
           .split(" ")
           .map((str: string) => Number(str))
           .reverse(),
-        city: geoObj.metaDataProperty.GeocoderMetaData.Address.Components.find((countryMeta: any) => countryMeta.kind === "locality").name,
-        countryCode: geoObj.metaDataProperty.GeocoderMetaData.Address.country_code,
-        country: geoObj.metaDataProperty.GeocoderMetaData.Address.Components.find((countryMeta: any) => countryMeta.kind === "country")
-          .name,
+        city: addres.Components.find((countryMeta: any) => countryMeta.kind === "locality").name,
+        countryCode: addres.country_code,
+        country: addres.Components.find((countryMeta: any) => countryMeta.kind === "country").name,
       };
     }
   } catch (error) {
