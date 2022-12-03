@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { PrintIcon } from "../../../assets/icons";
-import { Colors } from "../../../constants/colors";
-import Link from "../../../shared/components/Link";
+
+import Link from "@shared/components/Link";
 import Avatar from "../components/Avatar";
 import UserInfo from "../components/UserInfo";
+import { PrintIcon } from "@assets/icons";
+import { Colors } from "@constants/colors";
 
 const Home = () => {
   return (
