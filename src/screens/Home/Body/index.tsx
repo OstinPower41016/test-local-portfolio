@@ -6,8 +6,8 @@ import Link from "@shared/components/Link";
 import BlockContent from "../components/BlockContent";
 import ListWrapper from "../components/ListWrapper";
 import ExperienceBlock from "./ExperienceBlock";
+import SkillsStore from "@/store/Skills";
 import sampleCodeImg from "@assets/sample_code.png";
-import UserStore from "@store/User";
 
 const portfolio_links = [
   "Bootstrap 4 Material Design (Sample Link)",
@@ -37,7 +37,7 @@ const Body = observer(() => {
           <BlockContent>
             <ExperienceBlockWrapper title="Experience">
               <ul className="flex flex-col gap-2">
-                {UserStore.skills.map((skill) => {
+                {SkillsStore.skills.map((skill) => {
                   return (
                     <ExperienceBlock key={skill.id} defaultValue={skill.exp?.toString() ?? "0"} skillName={skill.title} id={skill.id} />
                   );

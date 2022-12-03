@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
 
-import Input from "@shared/components/Input";
 import Link from "@shared/components/Link";
 import { ExperienceTextContainer, ListItem } from "./index";
-import UserStore from "@store/User";
+import Input from "@/shared/components/Input";
+import SkillsStore from "@/store/Skills";
 
 interface IExperienceBlock {
   defaultValue: string;
@@ -13,6 +13,7 @@ interface IExperienceBlock {
 
 const ExperienceBlock: FC<IExperienceBlock> = (props) => {
   const [value, setValue] = useState(props.defaultValue);
+  const [isChangeMode, setIsChangeMode] = useState(false);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let currValue = e.target.value;
@@ -58,7 +59,8 @@ const ExperienceBlock: FC<IExperienceBlock> = (props) => {
   };
 
   const onBlur = () => {
-    UserStore.updateSkill({ id: props.id, value: props.skillName, exp: value });
+    setIsChangeMode(false);
+    SkillsStore.updateSkill({ id: props.id, value: props.skillName, exp: value });
   };
 
   return (
@@ -68,13 +70,13 @@ const ExperienceBlock: FC<IExperienceBlock> = (props) => {
           <p className="font-medium truncate">{props.skillName}</p>
           <Link>
             <div className="flex">
-              <Input
-                style={{ width: value.length === 1 ? "12px" : value.length + "ch" }}
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-              />
-              <p>{Number(value) <= 1 ? "year" : "years"}</p>
+              {isChangeMode && <Input autoFocus style={{ width: "4ch" }} value={value} onChange={onChange} onBlur={onBlur} type="number" />}
+              {!isChangeMode && (
+                <div className="flex gap-1" onClick={() => setIsChangeMode(true)}>
+                  <p>{value}</p>
+                  <p>{Number(value) <= 1 ? "year" : "years"}</p>
+                </div>
+              )}
             </div>
           </Link>
         </ExperienceTextContainer>

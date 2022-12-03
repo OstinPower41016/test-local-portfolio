@@ -5,4 +5,5 @@ export enum Colors {
   hover = "#EB5757",
   link = "#3483CC",
   paleGray = "rgba(179, 186, 192, 0.2)",
+  danger = "#FF0000",
 }

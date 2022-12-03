@@ -2,8 +2,9 @@ import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
 import Flag from "react-world-flags";
 
-import Input from "@shared/components/Input";
 import Skills from "../Skills";
+import { regexpSpecialCharacters } from "@/constants/regexp";
+import Input from "@/shared/components/Input";
 import UserStore from "@store/User";
 
 const UserInfo = observer(() => {
@@ -18,8 +19,20 @@ const UserInfo = observer(() => {
 
   return (
     <>
-      <Input className="text-4xl font-medium" value={UserStore.userName} onChange={(e) => UserStore.setUserName(e.target.value)} />
-      <Input className="text-xl" value={city} onChange={(e) => setCity(e.target.value)} onBlur={() => UserStore.setLocation(city)} />
+      <Input
+        condition={regexpSpecialCharacters}
+        className="text-4xl font-medium"
+        value={UserStore.userName}
+        onChange={(e) => UserStore.setUserName(e.target.value)}
+      />
+
+      <Input
+        condition={regexpSpecialCharacters}
+        className="text-xl"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+        onBlur={() => UserStore.setLocation(city)}
+      />
 
       <p className="flex gap-2">
         <Flag style={{ height: "24px" }} code={UserStore.location.countryCode} />
