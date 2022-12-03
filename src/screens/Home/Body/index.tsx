@@ -18,7 +18,7 @@ const portfolio_links = [
 
 const Body = observer(() => {
   return (
-    <Container className="container mx-auto flex flex-col justify-center">
+    <div className="container mx-auto flex flex-col justify-center mt-14">
       <div className="flex justify-between">
         <div className="flex justify-between">
           <BlockContent>
@@ -64,15 +64,9 @@ const Body = observer(() => {
           </div>
         </BlockContent>
       </div>
-    </Container>
+    </div>
   );
 });
-
-const Container = styled.div`
-  height: 50vh;
-  min-height: 200px;
-  max-height: 300px;
-`;
 
 export const ExperienceBlockWrapper = styled(ListWrapper)`
   max-width: 190px;

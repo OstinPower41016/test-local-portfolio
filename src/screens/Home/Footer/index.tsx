@@ -23,7 +23,7 @@ const Footer = observer(() => {
   }, [UserStore.location.coords]);
 
   return (
-    <div className="container mx-auto flex align-center justify-between mb-2">
+    <div className="container mx-auto flex align-center justify-between mb-14 mt-20 ">
       <div className="flex justify-between w-6/12">
         <BlockContent>
           <HeaderBlock children="The Most Amaizing..." />

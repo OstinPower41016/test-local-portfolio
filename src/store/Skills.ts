@@ -30,7 +30,12 @@ class Skills {
         id: this.skills[selectedSkillIdx].id,
       },
       ...this.skills.slice(selectedSkillIdx + 1),
-    ].sort((a, b) => (Number(b.exp) > Number(a.exp) ? 1 : -1));
+    ].sort((a, b) => {
+      if (a.exp === b.exp) {
+        return 0;
+      }
+      return Number(b.exp) > Number(a.exp) ? 1 : -1;
+    });
   };
 
   removeSkill = (id: string) => {
