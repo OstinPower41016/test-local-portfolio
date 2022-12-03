@@ -62,7 +62,7 @@ class User {
         id: this.skills[selectedSkillIdx].id,
       },
       ...this.skills.slice(selectedSkillIdx + 1),
-    ];
+    ].sort((a, b) => (Number(b.exp) > Number(a.exp) ? 1 : -1));
   };
 
   removeSkill = (id: string) => {

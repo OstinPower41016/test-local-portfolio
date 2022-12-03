@@ -15,8 +15,9 @@ const ExperienceBlock: FC<IExperienceBlock> = (props) => {
   const [value, setValue] = useState(props.defaultValue);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const currValue = e.target.value;
-    const time = currValue.split(",").map((num) => Number(num));
+    let currValue = e.target.value;
+    const separator = currValue.indexOf(".") === -1 ? "," : ".";
+    const time = currValue.split(separator).map((num) => Number(num));
     const [years, months] = time;
 
     if (time.length > 2) {
@@ -34,7 +35,7 @@ const ExperienceBlock: FC<IExperienceBlock> = (props) => {
     if (months) {
       if (isNaN(months)) {
         return;
-      } else if (months > 11) {
+      } else if (months > 9) {
         return;
       }
     }
@@ -42,6 +43,12 @@ const ExperienceBlock: FC<IExperienceBlock> = (props) => {
     if (!currValue) {
       setValue("0");
     } else {
+      if (separator === ",") {
+        if (months) {
+          currValue = `${years}.${months}`;
+        }
+      }
+
       if (currValue.startsWith("0") && years) {
         setValue(currValue.slice(1));
       } else {
