@@ -50,7 +50,7 @@ const PrintContainer = styled.div`
 `;
 
 const UserInfoContainer = styled.div`
-  max-width: 50%;
+  max-width: 90%;
 `;
 
 export default Home;
